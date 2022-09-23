@@ -6,7 +6,7 @@ const {readFileSync, writeFileSync} = require('fs');
 const path = require('path')
 const sentMail = require('../utility/sentMail');
 const sendMessage = require('../utility/sentSMSB');
-const getOTP = require('../utility/sentOTP');
+const sentOTP = require('../utility/sentOTP');
 
 
 // ==========================> show index  <==========================
@@ -111,7 +111,7 @@ const getOTP = require('../utility/sentOTP');
       
         let last_id = Date.now() + '_' + Math.floor(Math.random() * 10000);
 
-        const OTP = getOTP();
+        const OTP = sentOTP();
 
 
         const token = Date.now() + '_' + Math.floor(Math.random() * 100000);
