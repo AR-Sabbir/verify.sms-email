@@ -104,18 +104,17 @@ const getOTP = require('../utility/sentOTP');
 
     const showCreatePost = async (req, res) => {
 
-        const students =JSON.parse(readFileSync(path.join(__dirname,'../db/student/student.json')))
+        const students =JSON.parse(readFileSync(path.join(__dirname,'../db/student/student.json')));
 
         const {name,photo,cell,email,location} = req.body;
 
       
-        let last_id = Date.now() + '_' + Math.floor(Math.random() * 10000)
+        let last_id = Date.now() + '_' + Math.floor(Math.random() * 10000);
 
-        const OTP = getOTP()
+        const OTP = getOTP();
 
-       
 
-        const token = Date.now() + '_' + Math.floor(Math.random() * 100000)
+        const token = Date.now() + '_' + Math.floor(Math.random() * 100000);
         
         students.push({
 
@@ -146,7 +145,7 @@ const getOTP = require('../utility/sentOTP');
 
        
 
-        writeFileSync(path.join(__dirname,'../db/student/student.json'),JSON.stringify(students))
+        writeFileSync(path.join(__dirname,'../db/student/student.json'),JSON.stringify(students));
 
         
         
@@ -169,14 +168,14 @@ const getOTP = require('../utility/sentOTP');
 
             const students = JSON.parse(readFileSync(path.join(__dirname,'../db/student/student.json')))
 
-            const {id} = req.params
+            const {id} = req.params;
 
-                const newStudents = students.filter(data => data.id != id)
+                const newStudents = students.filter(data => data.id != id);
 
-                writeFileSync(path.join(__dirname,'../db/student/student.json'),JSON.stringify(newStudents))
+                writeFileSync(path.join(__dirname,'../db/student/student.json'),JSON.stringify(newStudents));
 
 
-                res.redirect('/student')
+                res.redirect('/student');
 
 
         }
@@ -187,11 +186,11 @@ const getOTP = require('../utility/sentOTP');
 
         const showSinglePage = (req, res ) => {
 
-            const students = JSON.parse(readFileSync(path.join(__dirname, '../db/student/student.json')))
+            const students = JSON.parse(readFileSync(path.join(__dirname, '../db/student/student.json')));
 
              const {id } = req.params;
 
-             const viewStudent = students.find( data => data.id == id)
+             const viewStudent = students.find( data => data.id == id);
 
              
 
@@ -207,11 +206,11 @@ const getOTP = require('../utility/sentOTP');
 
 const showEditPage = ( req, res ) => {
 
-    const students = JSON.parse( readFileSync(path.join(__dirname,'../db/student/student.json')) )
+    const students = JSON.parse( readFileSync(path.join(__dirname,'../db/student/student.json')) );
 
     const {id} = req.params;
 
-    const editStudent = students.find( data => data.id == id)
+    const editStudent = students.find( data => data.id == id);
 
     console.log(editStudent);
 
@@ -231,7 +230,7 @@ const showEditPage = ( req, res ) => {
 
         // student data
 
-        const students = JSON.parse(readFileSync(path.join(__dirname,'../db/student/student.json')))
+        const students = JSON.parse(readFileSync(path.join(__dirname,'../db/student/student.json')));
 
         students[ students.findIndex(data => data.id == id) ] ={
 
@@ -242,9 +241,9 @@ const showEditPage = ( req, res ) => {
         cell : req.body.cell,
         location : req.body.location
     }
-    writeFileSync(path.join(__dirname,'../db/student/student.json'),JSON.stringify(students))
+    writeFileSync(path.join(__dirname,'../db/student/student.json'),JSON.stringify(students));
 
-    res.redirect('back')
+    res.redirect('back');
 
     }
 

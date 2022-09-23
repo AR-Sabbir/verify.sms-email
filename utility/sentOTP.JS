@@ -5,7 +5,8 @@ const getOTP = () => {
     const pin = Math.floor(Math.random()*10000000);
 
     const code =  pin + "" ;
-    OTP = '';
+    
+    let OTP = '';
 
     if( code.length > 4){
 
@@ -20,3 +21,5 @@ const getOTP = () => {
 
 
 module.exports = getOTP
+
+
