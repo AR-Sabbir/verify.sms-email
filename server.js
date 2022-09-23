@@ -3,6 +3,7 @@ const colors = require('colors')
 const dotenv = require('dotenv').config()
 const expressLayouts = require('express-ejs-layouts')
 const studentRouts = require('./routes/studentRoutes')
+const homeRouts = require('./routes/homeRoutes')
 
 // Environment setup
 
@@ -33,7 +34,8 @@ app.use(express.static('public'))
 
 // routing
 
-app.use('/student',studentRouts)
+app.use('/student',studentRouts);
+app.use(homeRouts)
 
 // server listen
 
