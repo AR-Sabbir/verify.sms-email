@@ -1,12 +1,12 @@
     
     
     
-const {readFileSync, writeFileSync} = require('fs')
+const {readFileSync, writeFileSync} = require('fs');
 
 const path = require('path')
-const sentMail = require('../utility/sentMail')
-const sendMessage = require('../utility/sentSMSB')
-const getOTP = require('../utility/sentOTP')
+const sentMail = require('../utility/sentMail');
+const sendMessage = require('../utility/sentSMSB');
+const getOTP = require('../utility/sentOTP');
 
 
 // ==========================> show index  <==========================
@@ -109,7 +109,6 @@ const getOTP = require('../utility/sentOTP')
         const {name,photo,cell,email,location} = req.body;
 
       
-         
         let last_id = Date.now() + '_' + Math.floor(Math.random() * 10000)
 
         const OTP = getOTP()
@@ -333,7 +332,6 @@ const showEditPage = ( req, res ) => {
     showEditPage,
     showUpdatePage,
     unverifiedStudent,
-    sentMail,
     verifyAccount,
     smsVerify,
     smsVerifyDone
