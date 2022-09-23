@@ -1,0 +1,70 @@
+
+
+
+<div class="container my-5 student-table">
+
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <a href="/student" class="btn btn-sm btn-primary">back</a>
+        <br>
+        <br>
+    <div class="card shadow-sm">
+
+        <div class="card-header">
+            <h2 class="text-center">Unverify Student Data</h2>
+        </div>
+
+        <div class="card-body">
+
+           
+                <table class="table table-striped data-table">
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>Name</td>
+                            <td>Email</td>
+                            <td>Cell</td>
+                            <td>Location</td>
+                            <td>Photo</td>
+                            <th>Status</th>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% students.forEach((studens,index )=> { %>
+                            <tr class="align-middle">
+                                <td><%= index + 1%></td>
+                                <td><%= studens.name %></td>
+                                <td><%= studens.email %></td>
+                                <td><%= studens.cell %></td>
+                                <td><%= studens.location %></td>
+                                <td>
+                                    <% if (studens.photo =='avater.png') { %>
+                                        <img src="/images/<%= studens.photo %>" alt="">
+                                        <% } else { %>
+                                           <img src="/images/student-image/<%= studens.photo %>" alt="">
+                                       <% } %>
+                                     
+                                   
+                                </td>
+                                <td>
+                                    <a class="btn btn-warning btn-sm" href="/student/sms-verify/<%= studens.id %>">Verify By Phone</a>
+                                </td>
+                                <td>
+                                    <a href="/student/view/<%= studens.id %> " class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                    <a href="/student/edit/<%= studens.id %> " class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                    <a href="/student/delete/<%= studens.id %> " class="btn btn-danger delete-btn"><i class="fas fa-trash"></i></a>
+                                </td>
+
+                            </tr>
+                        <% }) %>
+                       
+                    </tbody>
+                </table>
+        
+
+        </div>
+    </div>
+    </div>
+</div>
+</div>

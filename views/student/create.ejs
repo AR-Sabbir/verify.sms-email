@@ -1,0 +1,66 @@
+
+
+
+<div class="container my-5 student-form">
+
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <a href="/student" class="btn btn-sm btn-primary">Back</a>
+            <br>
+            <br>
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h2 class="text-center">Create New Student</h2>
+            </div>
+
+            <div class="card-body">
+
+               
+                <form  id="createFormData" action="/student/create" method="POST" enctype="multipart/form-data">
+
+                    <div class="my-3">
+                        <label for="">Name</label>
+                        <input class="form-control" type="text" name="name">
+                    </div>
+                    <div class="my-3">
+                        <label for="">Email</label>
+                        <input class="form-control" type="text" name="email">
+                    </div>
+                    <div class="my-3">
+                        <label for="">Cell</label>
+                        <input class="form-control" type="text" name="cell">
+                    </div>
+                    
+                    <div class="my-3">
+                        <label for="">Location</label>
+                        <select  name="location"  id="">
+                            <option value="">-Select-</option>
+                            <option value="Chapai Nawabganj">Chapai Nawabganj</option>
+                            <option value="Rajshahi">Rajshahi</option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Khulna">Khulna</option>
+                            <option value="Syhlet">Syhlet</option>
+                        </select>
+                        
+                    </div>
+                    <div class="my-3">
+                        <label for="">Photo</label>
+                        <br>
+                        <img  class="preloaded" src="" alt="">
+                        <br>
+                        <input name="student-photo" class="form-control" id="student-photo-id" type="file" name="Photo">
+                    </div>
+                    <div class="my-3">
+                        <input class="btn btn-primary w-100" type="Submit"  value="Create">
+                    </div>
+                    
+                </form>
+
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="spinner-border text-info lodaing" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
