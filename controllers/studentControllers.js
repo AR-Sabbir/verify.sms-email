@@ -77,10 +77,13 @@ const sendMessage = require('../utility/sentSMSB');
     }
     writeFileSync(path.join(__dirname,'../db/student/student.json'),JSON.stringify(students))
 
-    res.render('student/isVerified',{
 
-        isVerified : students[ students.findIndex(data => data.token == token) ] . isVerified
-    })
+    res.redirect('/student')
+
+    // res.render('student/isVerified',{
+
+    //     isVerified : students[ students.findIndex(data => data.token == token) ] . isVerified
+    // })
 
 
 
@@ -305,7 +308,7 @@ const showEditPage = ( req, res ) => {
     
     // }
 
-    const index = students.findIndex( data => data.OTP == req.body.OTP)
+    const index = students.findIndex( data => data.OTP == req.body.OTP);
 
     students[index] = {
 
@@ -317,7 +320,7 @@ const showEditPage = ( req, res ) => {
     }
 
 
-    writeFileSync(path.join(__dirname, '../db/student/student.json'),JSON.stringify(students))
+    writeFileSync(path.join(__dirname, '../db/student/student.json'),JSON.stringify(students));
 
 
     res.render('student/isVerified',{
